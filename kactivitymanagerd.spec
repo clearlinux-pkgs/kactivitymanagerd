@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.13.4
-Release  : 1
-URL      : https://download.kde.org/stable/plasma/5.13.4/kactivitymanagerd-5.13.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.13.4/kactivitymanagerd-5.13.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.13.4/kactivitymanagerd-5.13.4.tar.xz.sig
+Version  : 5.13.5
+Release  : 2
+URL      : https://download.kde.org/stable/plasma/5.13.5/kactivitymanagerd-5.13.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.13.5/kactivitymanagerd-5.13.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.13.5/kactivitymanagerd-5.13.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -21,17 +21,15 @@ Requires: kactivitymanagerd-locales
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcrash-dev
-BuildRequires : kdbusaddons-dev
 BuildRequires : kglobalaccel-dev
-BuildRequires : kwindowsystem-dev
 
 %description
-Compiler compatibility
-======================
-You can (and should) use more modern C++ coding practices. Including
-auto, lambdas, smart pointers etc. You can use anything that GCC 4.7
-can compile.
+# KActivities
+Core components for the KDE Activity concept
+## Introduction
+When a user is interacting with a computer, there are three main areas of
+contextual information that may affect the behaviour of the system: who the user
+is, where they are, and what they are doing.
 
 %package bin
 Summary: bin components for the kactivitymanagerd package.
@@ -90,14 +88,14 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.13.4
+%setup -q -n kactivitymanagerd-5.13.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535147417
+export SOURCE_DATE_EPOCH=1536086539
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -105,7 +103,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535147417
+export SOURCE_DATE_EPOCH=1536086539
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kactivitymanagerd
 cp COPYING.GPL2 %{buildroot}/usr/share/doc/kactivitymanagerd/COPYING.GPL2
