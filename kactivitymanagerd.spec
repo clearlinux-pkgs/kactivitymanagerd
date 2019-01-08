@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.14.4
-Release  : 7
-URL      : https://download.kde.org/stable/plasma/5.14.4/kactivitymanagerd-5.14.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.4/kactivitymanagerd-5.14.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.4/kactivitymanagerd-5.14.4.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.14.5
+Release  : 8
+URL      : https://download.kde.org/stable/plasma/5.14.5/kactivitymanagerd-5.14.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.14.5/kactivitymanagerd-5.14.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.14.5/kactivitymanagerd-5.14.5.tar.xz.sig
+Summary  : System service to manage user's activities and track the usage patterns
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
 Requires: kactivitymanagerd-bin = %{version}-%{release}
@@ -87,22 +87,22 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.14.4
+%setup -q -n kactivitymanagerd-5.14.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543391739
+export SOURCE_DATE_EPOCH=1546962433
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1543391739
+export SOURCE_DATE_EPOCH=1546962433
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
 cp COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL2
