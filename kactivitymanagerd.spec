@@ -5,15 +5,14 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.14.5
-Release  : 8
-URL      : https://download.kde.org/stable/plasma/5.14.5/kactivitymanagerd-5.14.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.5/kactivitymanagerd-5.14.5.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.5/kactivitymanagerd-5.14.5.tar.xz.sig
+Version  : 5.15.0
+Release  : 9
+URL      : https://download.kde.org/stable/plasma/5.15.0/kactivitymanagerd-5.15.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.0/kactivitymanagerd-5.15.0.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.0/kactivitymanagerd-5.15.0.tar.xz.sig
 Summary  : System service to manage user's activities and track the usage patterns
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
-Requires: kactivitymanagerd-bin = %{version}-%{release}
 Requires: kactivitymanagerd-data = %{version}-%{release}
 Requires: kactivitymanagerd-lib = %{version}-%{release}
 Requires: kactivitymanagerd-license = %{version}-%{release}
@@ -30,16 +29,6 @@ When a user is interacting with a computer, there are three main areas of
 contextual information that may affect the behaviour of the system: who the user
 is, where they are, and what they are doing.
 
-%package bin
-Summary: bin components for the kactivitymanagerd package.
-Group: Binaries
-Requires: kactivitymanagerd-data = %{version}-%{release}
-Requires: kactivitymanagerd-license = %{version}-%{release}
-
-%description bin
-bin components for the kactivitymanagerd package.
-
-
 %package data
 Summary: data components for the kactivitymanagerd package.
 Group: Data
@@ -52,7 +41,6 @@ data components for the kactivitymanagerd package.
 Summary: dev components for the kactivitymanagerd package.
 Group: Development
 Requires: kactivitymanagerd-lib = %{version}-%{release}
-Requires: kactivitymanagerd-bin = %{version}-%{release}
 Requires: kactivitymanagerd-data = %{version}-%{release}
 Provides: kactivitymanagerd-devel = %{version}-%{release}
 
@@ -87,14 +75,14 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.14.5
+%setup -q -n kactivitymanagerd-5.15.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546962433
+export SOURCE_DATE_EPOCH=1549993027
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -102,7 +90,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1546962433
+export SOURCE_DATE_EPOCH=1549993027
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
 cp COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL2
@@ -114,16 +102,14 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files bin
-%defattr(-,root,root,-)
-/usr/bin/kactivitymanagerd
+/usr/lib64/libexec/kactivitymanagerd
 
 %files data
 %defattr(-,root,root,-)
 /usr/share/dbus-1/services/org.kde.activitymanager.service
 /usr/share/kservices5/kactivitymanagerd.desktop
 /usr/share/kservicetypes5/kactivitymanagerd-plugin.desktop
+/usr/share/xdg/kactivitymanagerd.categories
 
 %files dev
 %defattr(-,root,root,-)
