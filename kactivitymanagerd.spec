@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.15.0
-Release  : 9
-URL      : https://download.kde.org/stable/plasma/5.15.0/kactivitymanagerd-5.15.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.0/kactivitymanagerd-5.15.0.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.0/kactivitymanagerd-5.15.0.tar.xz.sig
+Version  : 5.15.1
+Release  : 10
+URL      : https://download.kde.org/stable/plasma/5.15.1/kactivitymanagerd-5.15.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.1/kactivitymanagerd-5.15.1.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.1/kactivitymanagerd-5.15.1.tar.xz.sig
 Summary  : System service to manage user's activities and track the usage patterns
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -75,14 +75,14 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.15.0
+%setup -q -n kactivitymanagerd-5.15.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549993027
+export SOURCE_DATE_EPOCH=1550586812
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -90,7 +90,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549993027
+export SOURCE_DATE_EPOCH=1550586812
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
 cp COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL2
