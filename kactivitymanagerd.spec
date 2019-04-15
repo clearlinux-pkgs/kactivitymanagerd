@@ -6,7 +6,7 @@
 #
 Name     : kactivitymanagerd
 Version  : 5.15.4
-Release  : 13
+Release  : 14
 URL      : https://download.kde.org/stable/plasma/5.15.4/kactivitymanagerd-5.15.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.15.4/kactivitymanagerd-5.15.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.15.4/kactivitymanagerd-5.15.4.tar.xz.sig
@@ -17,9 +17,13 @@ Requires: kactivitymanagerd-data = %{version}-%{release}
 Requires: kactivitymanagerd-lib = %{version}-%{release}
 Requires: kactivitymanagerd-license = %{version}-%{release}
 Requires: kactivitymanagerd-locales = %{version}-%{release}
+BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : kcrash-dev
+BuildRequires : kdbusaddons-dev
 BuildRequires : kglobalaccel-dev
+BuildRequires : kwindowsystem-dev
 
 %description
 # KActivities
@@ -83,7 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554217531
+export SOURCE_DATE_EPOCH=1555320657
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -91,7 +95,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1554217531
+export SOURCE_DATE_EPOCH=1555320657
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
 cp COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL2
