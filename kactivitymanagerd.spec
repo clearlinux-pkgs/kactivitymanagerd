@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.15.4
-Release  : 15
-URL      : https://download.kde.org/stable/plasma/5.15.4/kactivitymanagerd-5.15.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.4/kactivitymanagerd-5.15.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.4/kactivitymanagerd-5.15.4.tar.xz.sig
+Version  : 5.15.5
+Release  : 16
+URL      : https://download.kde.org/stable/plasma/5.15.5/kactivitymanagerd-5.15.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.5/kactivitymanagerd-5.15.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.5/kactivitymanagerd-5.15.5.tar.xz.sig
 Summary  : System service to manage user's activities and track the usage patterns
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -17,13 +17,9 @@ Requires: kactivitymanagerd-data = %{version}-%{release}
 Requires: kactivitymanagerd-lib = %{version}-%{release}
 Requires: kactivitymanagerd-license = %{version}-%{release}
 Requires: kactivitymanagerd-locales = %{version}-%{release}
-BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcrash-dev
-BuildRequires : kdbusaddons-dev
 BuildRequires : kglobalaccel-dev
-BuildRequires : kwindowsystem-dev
 
 %description
 # KActivities
@@ -80,14 +76,14 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.15.4
+%setup -q -n kactivitymanagerd-5.15.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556999671
+export SOURCE_DATE_EPOCH=1557239289
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -102,7 +98,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1556999671
+export SOURCE_DATE_EPOCH=1557239289
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
 cp COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL2
