@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.16.0
-Release  : 17
-URL      : https://download.kde.org/stable/plasma/5.16.0/kactivitymanagerd-5.16.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.0/kactivitymanagerd-5.16.0.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.16.0/kactivitymanagerd-5.16.0.tar.xz.sig
+Version  : 5.16.1
+Release  : 18
+URL      : https://download.kde.org/stable/plasma/5.16.1/kactivitymanagerd-5.16.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.1/kactivitymanagerd-5.16.1.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.16.1/kactivitymanagerd-5.16.1.tar.xz.sig
 Summary  : System service to manage user's activities and track the usage patterns
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -77,16 +77,17 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.16.0
+%setup -q -n kactivitymanagerd-5.16.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1560264888
+export SOURCE_DATE_EPOCH=1560868777
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -99,7 +100,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1560264888
+export SOURCE_DATE_EPOCH=1560868777
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
 cp COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL2
