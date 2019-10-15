@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.16.5
-Release  : 22
-URL      : https://download.kde.org/stable/plasma/5.16.5/kactivitymanagerd-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/kactivitymanagerd-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/kactivitymanagerd-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 23
+URL      : https://download.kde.org/stable/plasma/5.17.0/kactivitymanagerd-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/kactivitymanagerd-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/kactivitymanagerd-5.17.0.tar.xz.sig
 Summary  : System service to manage user's activities and track the usage patterns
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -77,14 +77,14 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.16.5
+%setup -q -n kactivitymanagerd-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567640661
+export SOURCE_DATE_EPOCH=1571152915
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -97,15 +97,15 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567640661
+export SOURCE_DATE_EPOCH=1571152915
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
-cp COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL2
-cp COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL3
+cp %{_builddir}/kactivitymanagerd-5.17.0/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kactivitymanagerd-5.17.0/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 pushd clr-build
 %make_install
 popd
@@ -120,7 +120,7 @@ popd
 /usr/share/dbus-1/services/org.kde.activitymanager.service
 /usr/share/kservices5/kactivitymanagerd.desktop
 /usr/share/kservicetypes5/kactivitymanagerd-plugin.desktop
-/usr/share/xdg/kactivitymanagerd.categories
+/usr/share/qlogging-categories5/kactivitymanagerd.categories
 
 %files dev
 %defattr(-,root,root,-)
@@ -131,6 +131,7 @@ popd
 /usr/lib64/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_activitytemplates.so
 /usr/lib64/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_eventspy.so
 /usr/lib64/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_globalshortcuts.so
+/usr/lib64/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_gtk_eventspy.so
 /usr/lib64/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_runapplication.so
 /usr/lib64/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_slc.so
 /usr/lib64/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_sqlite.so
@@ -138,8 +139,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL2
-/usr/share/package-licenses/kactivitymanagerd/COPYING.GPL3
+/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
+/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 
 %files locales -f kactivities5.lang
 %defattr(-,root,root,-)
