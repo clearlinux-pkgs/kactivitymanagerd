@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.17.5
-Release  : 28
-URL      : https://download.kde.org/stable/plasma/5.17.5/kactivitymanagerd-5.17.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.17.5/kactivitymanagerd-5.17.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.17.5/kactivitymanagerd-5.17.5.tar.xz.sig
+Version  : 5.18.0
+Release  : 29
+URL      : https://download.kde.org/stable/plasma/5.18.0/kactivitymanagerd-5.18.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.0/kactivitymanagerd-5.18.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.0/kactivitymanagerd-5.18.0.tar.xz.sig
 Summary  : System service to manage user's activities and track the usage patterns
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -77,15 +77,15 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.17.5
-cd %{_builddir}/kactivitymanagerd-5.17.5
+%setup -q -n kactivitymanagerd-5.18.0
+cd %{_builddir}/kactivitymanagerd-5.18.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578425146
+export SOURCE_DATE_EPOCH=1581433536
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -102,11 +102,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1578425146
+export SOURCE_DATE_EPOCH=1581433536
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
-cp %{_builddir}/kactivitymanagerd-5.17.5/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kactivitymanagerd-5.17.5/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/kactivitymanagerd-5.18.0/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kactivitymanagerd-5.18.0/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 pushd clr-build
 %make_install
 popd
