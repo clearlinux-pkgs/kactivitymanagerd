@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.18.4.1
-Release  : 33
-URL      : https://download.kde.org/stable/plasma/5.18.4/kactivitymanagerd-5.18.4.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.4/kactivitymanagerd-5.18.4.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.4/kactivitymanagerd-5.18.4.1.tar.xz.sig
-Summary  : System service to manage user's activities and track the usage patterns
+Version  : 5.18.5
+Release  : 34
+URL      : https://download.kde.org/stable/plasma/5.18.5/kactivitymanagerd-5.18.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.5/kactivitymanagerd-5.18.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.5/kactivitymanagerd-5.18.5.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
 Requires: kactivitymanagerd-data = %{version}-%{release}
@@ -19,6 +19,7 @@ Requires: kactivitymanagerd-license = %{version}-%{release}
 Requires: kactivitymanagerd-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
 BuildRequires : kglobalaccel-dev
 
 %description
@@ -43,7 +44,6 @@ Group: Development
 Requires: kactivitymanagerd-lib = %{version}-%{release}
 Requires: kactivitymanagerd-data = %{version}-%{release}
 Provides: kactivitymanagerd-devel = %{version}-%{release}
-Requires: kactivitymanagerd = %{version}-%{release}
 Requires: kactivitymanagerd = %{version}-%{release}
 
 %description dev
@@ -77,36 +77,35 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.18.4.1
-cd %{_builddir}/kactivitymanagerd-5.18.4.1
+%setup -q -n kactivitymanagerd-5.18.5
+cd %{_builddir}/kactivitymanagerd-5.18.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585675168
+export SOURCE_DATE_EPOCH=1588699687
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1585675168
+export SOURCE_DATE_EPOCH=1588699687
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
-cp %{_builddir}/kactivitymanagerd-5.18.4.1/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kactivitymanagerd-5.18.4.1/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/kactivitymanagerd-5.18.5/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kactivitymanagerd-5.18.5/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 pushd clr-build
 %make_install
 popd
