@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.19.2
-Release  : 37
-URL      : https://download.kde.org/stable/plasma/5.19.2/kactivitymanagerd-5.19.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.19.2/kactivitymanagerd-5.19.2.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.19.2/kactivitymanagerd-5.19.2.tar.xz.sig
+Version  : 5.19.4
+Release  : 38
+URL      : https://download.kde.org/stable/plasma/5.19.4/kactivitymanagerd-5.19.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.19.4/kactivitymanagerd-5.19.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.19.4/kactivitymanagerd-5.19.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -76,15 +76,15 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.19.2
-cd %{_builddir}/kactivitymanagerd-5.19.2
+%setup -q -n kactivitymanagerd-5.19.4
+cd %{_builddir}/kactivitymanagerd-5.19.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592938127
+export SOURCE_DATE_EPOCH=1597632450
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -96,15 +96,15 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1592938127
+export SOURCE_DATE_EPOCH=1597632450
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
-cp %{_builddir}/kactivitymanagerd-5.19.2/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kactivitymanagerd-5.19.2/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/kactivitymanagerd-5.19.4/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kactivitymanagerd-5.19.4/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 pushd clr-build
 %make_install
 popd
