@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.20.2
-Release  : 41
-URL      : https://download.kde.org/stable/plasma/5.20.2/kactivitymanagerd-5.20.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.20.2/kactivitymanagerd-5.20.2.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.20.2/kactivitymanagerd-5.20.2.tar.xz.sig
+Version  : 5.20.3
+Release  : 42
+URL      : https://download.kde.org/stable/plasma/5.20.3/kactivitymanagerd-5.20.3.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.20.3/kactivitymanagerd-5.20.3.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.20.3/kactivitymanagerd-5.20.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -23,12 +23,11 @@ BuildRequires : extra-cmake-modules-data
 BuildRequires : kglobalaccel-dev
 
 %description
-# KActivities
-Core components for the KDE Activity concept
-## Introduction
-When a user is interacting with a computer, there are three main areas of
-contextual information that may affect the behaviour of the system: who the user
-is, where they are, and what they are doing.
+Compiler compatibility
+======================
+You can (and should) use more modern C++ coding practices. Including
+auto, lambdas, smart pointers etc. You can use anything that GCC 4.7
+can compile.
 
 %package data
 Summary: data components for the kactivitymanagerd package.
@@ -77,15 +76,15 @@ locales components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.20.2
-cd %{_builddir}/kactivitymanagerd-5.20.2
+%setup -q -n kactivitymanagerd-5.20.3
+cd %{_builddir}/kactivitymanagerd-5.20.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1603843997
+export SOURCE_DATE_EPOCH=1605079040
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -101,11 +100,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1603843997
+export SOURCE_DATE_EPOCH=1605079040
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
-cp %{_builddir}/kactivitymanagerd-5.20.2/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kactivitymanagerd-5.20.2/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/kactivitymanagerd-5.20.3/COPYING.GPL2 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kactivitymanagerd-5.20.3/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/kactivitymanagerd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 pushd clr-build
 %make_install
 popd
