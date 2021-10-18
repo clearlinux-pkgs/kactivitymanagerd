@@ -4,7 +4,7 @@
 #
 Name     : kactivitymanagerd
 Version  : 5.23.0
-Release  : 49
+Release  : 50
 URL      : https://download.kde.org/stable/plasma/5.23.0/kactivitymanagerd-5.23.0.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.23.0/kactivitymanagerd-5.23.0.tar.xz
 Summary  : No detailed summary available
