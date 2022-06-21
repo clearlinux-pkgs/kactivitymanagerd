@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.25.0
-Release  : 62
-URL      : https://download.kde.org/stable/plasma/5.25.0/kactivitymanagerd-5.25.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.0/kactivitymanagerd-5.25.0.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.0/kactivitymanagerd-5.25.0.tar.xz.sig
+Version  : 5.25.1
+Release  : 63
+URL      : https://download.kde.org/stable/plasma/5.25.1/kactivitymanagerd-5.25.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.25.1/kactivitymanagerd-5.25.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.25.1/kactivitymanagerd-5.25.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -26,11 +26,12 @@ BuildRequires : kglobalaccel-dev
 BuildRequires : qt6base-dev
 
 %description
-Compiler compatibility
-======================
-You can (and should) use more modern C++ coding practices. Including
-auto, lambdas, smart pointers etc. You can use anything that GCC 4.7
-can compile.
+# KActivities
+Core components for the KDE Activity concept
+## Introduction
+When a user is interacting with a computer, there are three main areas of
+contextual information that may affect the behaviour of the system: who the user
+is, where they are, and what they are doing.
 
 %package data
 Summary: data components for the kactivitymanagerd package.
@@ -87,15 +88,15 @@ services components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.25.0
-cd %{_builddir}/kactivitymanagerd-5.25.0
+%setup -q -n kactivitymanagerd-5.25.1
+cd %{_builddir}/kactivitymanagerd-5.25.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1655415815
+export SOURCE_DATE_EPOCH=1655835182
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -111,18 +112,18 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1655415815
+export SOURCE_DATE_EPOCH=1655835182
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kactivitymanagerd-5.25.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kactivitymanagerd-5.25.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
