@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.25.5
-Release  : 67
-URL      : https://download.kde.org/stable/plasma/5.25.5/kactivitymanagerd-5.25.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.5/kactivitymanagerd-5.25.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.5/kactivitymanagerd-5.25.5.tar.xz.sig
+Version  : 5.26.0
+Release  : 68
+URL      : https://download.kde.org/stable/plasma/5.26.0/kactivitymanagerd-5.26.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.0/kactivitymanagerd-5.26.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.0/kactivitymanagerd-5.26.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
+License  : CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
 Requires: kactivitymanagerd-data = %{version}-%{release}
 Requires: kactivitymanagerd-lib = %{version}-%{release}
 Requires: kactivitymanagerd-license = %{version}-%{release}
@@ -88,15 +88,15 @@ services components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.25.5
-cd %{_builddir}/kactivitymanagerd-5.25.5
+%setup -q -n kactivitymanagerd-5.26.0
+cd %{_builddir}/kactivitymanagerd-5.26.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662506788
+export SOURCE_DATE_EPOCH=1665731539
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -112,9 +112,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662506788
+export SOURCE_DATE_EPOCH=1665731539
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
+cp %{_builddir}/kactivitymanagerd-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 cp %{_builddir}/kactivitymanagerd-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/2a638514c87c4923c0570c55822620fad56f2a33 || :
 cp %{_builddir}/kactivitymanagerd-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/e712eadfab0d2357c0f50f599ef35ee0d87534cb || :
 cp %{_builddir}/kactivitymanagerd-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/6091db0aead0d90182b93d3c0d09ba93d188f907 || :
@@ -138,7 +139,6 @@ popd
 /usr/share/dbus-1/services/org.kde.ActivityManager.service
 /usr/share/krunner/dbusplugins/plasma-runnners-activities.desktop
 /usr/share/kservices5/kactivitymanagerd.desktop
-/usr/share/kservicetypes5/kactivitymanagerd-plugin.desktop
 /usr/share/qlogging-categories5/kactivitymanagerd.categories
 
 %files dev
@@ -164,6 +164,7 @@ popd
 /usr/share/package-licenses/kactivitymanagerd/6091db0aead0d90182b93d3c0d09ba93d188f907
 /usr/share/package-licenses/kactivitymanagerd/757b86330df80f81143d5916b3e92b4bcb1b1890
 /usr/share/package-licenses/kactivitymanagerd/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/kactivitymanagerd/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/kactivitymanagerd/e458941548e0864907e654fa2e192844ae90fc32
 /usr/share/package-licenses/kactivitymanagerd/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
