@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kactivitymanagerd
-Version  : 5.26.3
-Release  : 71
-URL      : https://download.kde.org/stable/plasma/5.26.3/kactivitymanagerd-5.26.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.26.3/kactivitymanagerd-5.26.3.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.26.3/kactivitymanagerd-5.26.3.tar.xz.sig
+Version  : 5.26.4
+Release  : 72
+URL      : https://download.kde.org/stable/plasma/5.26.4/kactivitymanagerd-5.26.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.4/kactivitymanagerd-5.26.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.4/kactivitymanagerd-5.26.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -88,15 +88,15 @@ services components for the kactivitymanagerd package.
 
 
 %prep
-%setup -q -n kactivitymanagerd-5.26.3
-cd %{_builddir}/kactivitymanagerd-5.26.3
+%setup -q -n kactivitymanagerd-5.26.4
+cd %{_builddir}/kactivitymanagerd-5.26.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667927098
+export SOURCE_DATE_EPOCH=1669822326
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -112,7 +112,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667927098
+export SOURCE_DATE_EPOCH=1669822326
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
 cp %{_builddir}/kactivitymanagerd-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
