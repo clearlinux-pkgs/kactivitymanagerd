@@ -9,7 +9,7 @@
 #
 Name     : kactivitymanagerd
 Version  : 6.0.2
-Release  : 91
+Release  : 92
 URL      : https://download.kde.org/stable/plasma/6.0.2/kactivitymanagerd-6.0.2.tar.xz
 Source0  : https://download.kde.org/stable/plasma/6.0.2/kactivitymanagerd-6.0.2.tar.xz
 Source1  : https://download.kde.org/stable/plasma/6.0.2/kactivitymanagerd-6.0.2.tar.xz.sig
@@ -43,18 +43,6 @@ Group: Data
 
 %description data
 data components for the kactivitymanagerd package.
-
-
-%package dev
-Summary: dev components for the kactivitymanagerd package.
-Group: Development
-Requires: kactivitymanagerd-lib = %{version}-%{release}
-Requires: kactivitymanagerd-data = %{version}-%{release}
-Provides: kactivitymanagerd-devel = %{version}-%{release}
-Requires: kactivitymanagerd = %{version}-%{release}
-
-%description dev
-dev components for the kactivitymanagerd package.
 
 
 %package lib
@@ -101,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1711117236
+export SOURCE_DATE_EPOCH=1711119726
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -162,7 +150,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1711117236
+export SOURCE_DATE_EPOCH=1711119726
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivitymanagerd
 cp %{_builddir}/kactivitymanagerd-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kactivitymanagerd/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -198,13 +186,9 @@ popd
 /usr/share/krunner/dbusplugins/plasma-runnners-activities.desktop
 /usr/share/qlogging-categories6/kactivitymanagerd.categories
 
-%files dev
-%defattr(-,root,root,-)
-/V3/usr/lib64/libkactivitymanagerd_plugin.so
-/usr/lib64/libkactivitymanagerd_plugin.so
-
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/libkactivitymanagerd_plugin.so
 /V3/usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.ActivityRunner.so
 /V3/usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.ActivityTemplates.so
 /V3/usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.GlobalShortcuts.so
@@ -213,6 +197,7 @@ popd
 /V3/usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.ResourceScoring.so
 /V3/usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.RunApplication.so
 /V3/usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.VirtualDesktopSwitch.so
+/usr/lib64/libkactivitymanagerd_plugin.so
 /usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.ActivityRunner.so
 /usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.ActivityTemplates.so
 /usr/lib64/qt6/plugins/kactivitymanagerd1/org.kde.ActivityManager.GlobalShortcuts.so
