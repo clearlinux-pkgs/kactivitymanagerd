@@ -1,35 +1,5 @@
-libkactivitymanagerd_plugin.so:Event::Event(QString const&, unsigned long long, QString const&, int)
 libkactivitymanagerd_plugin.so:Event::Event()
-libkactivitymanagerd_plugin.so:Event::Event(QString const&, unsigned long long, QString const&, int)
-libkactivitymanagerd_plugin.so:Event::Event()
-libkactivitymanagerd_plugin.so:Module::qt_metacall(QMetaObject::Call, int, void**)
-libkactivitymanagerd_plugin.so:Module::qt_metacast(char const*)
-libkactivitymanagerd_plugin.so:Module::setFeatureValue(QList<QString> const&, QDBusVariant const&)
-libkactivitymanagerd_plugin.so:Module::setFeatureEnabled(QList<QString> const&, bool)
-libkactivitymanagerd_plugin.so:Module::get(QString const&)
 libkactivitymanagerd_plugin.so:Module::get()
-libkactivitymanagerd_plugin.so:Module::Module(QString const&, QObject*)
-libkactivitymanagerd_plugin.so:Module::Module(QString const&, QObject*)
 libkactivitymanagerd_plugin.so:Module::~Module()
-libkactivitymanagerd_plugin.so:Module::~Module()
-libkactivitymanagerd_plugin.so:Module::~Module()
-libkactivitymanagerd_plugin.so:Plugin::qt_metacall(QMetaObject::Call, int, void**)
-libkactivitymanagerd_plugin.so:Plugin::qt_metacast(char const*)
-libkactivitymanagerd_plugin.so:Plugin::init(QHash<QString, QObject*>&)
-libkactivitymanagerd_plugin.so:Plugin::setName(QString const&)
-libkactivitymanagerd_plugin.so:Plugin::Plugin(QObject*)
 libkactivitymanagerd_plugin.so:Plugin::Plugin(QObject*)
 libkactivitymanagerd_plugin.so:Plugin::~Plugin()
-libkactivitymanagerd_plugin.so:Plugin::~Plugin()
-libkactivitymanagerd_plugin.so:Plugin::~Plugin()
-libkactivitymanagerd_plugin.so:Event::deriveWithType(Event::Type) const
-libkactivitymanagerd_plugin.so:Event::typeName() const
-libkactivitymanagerd_plugin.so:Event::operator==(Event const&) const
-libkactivitymanagerd_plugin.so:Module::metaObject() const
-libkactivitymanagerd_plugin.so:Module::featureValue(QList<QString> const&) const
-libkactivitymanagerd_plugin.so:Module::listFeatures(QList<QString> const&) const
-libkactivitymanagerd_plugin.so:Module::isFeatureEnabled(QList<QString> const&) const
-libkactivitymanagerd_plugin.so:Module::isFeatureOperational(QList<QString> const&) const
-libkactivitymanagerd_plugin.so:Plugin::metaObject() const
-libkactivitymanagerd_plugin.so:Plugin::name() const
-libkactivitymanagerd_plugin.so:Plugin::config() const
